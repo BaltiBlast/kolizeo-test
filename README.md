@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kolizeo - Test technique de Florian Fougeray
 
-## Getting Started
+Temps estimé : 2/3h<br />
+Temps passé : 3h/3h30
 
-First, run the development server:
+## Journal de bord
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Avant même de penser au projet, je vais d'abord lister ce qui ne m'est pas familier pour comprendre leurs enjeux.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Unity Remote Config : Unity je connais, je joue un peu. Par contre dans ce contexte, ça ne me dit rien. <br />
+  ➡️ Pour comprendre / me documenter, je me suis appuyé directement sur la doc de Unity + communiqué avec ChatGPT
+  Pour ce cas précis, ne sachant pas comment opérer, je vais isoler le problème sur un script à part avant de l'implémenter dans ce projet.
+  J'ai rencontré quelque difficulté pour construire l'URL, je ne trouvais pas la ressource dont j'avais besoin dans la doc, mais j'ai finis par y arriver.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Vercel : Jamais utilisé mais je sais que c'est. <br />
+  ➡️ J'utilise Render en temps normal. Après vérification, les deux se ressemblent beaucoup. Je ne serais donc pas perdu pour le déploiment !
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Backend avec Next : Déjà fait pour comprendre la logique mais jamais appliqué réellement.<br />
+  ➡️ Je vais tenter d'organiser mon code comme je le fais avec Node directement.
 
-## Learn More
+## Réflexions
 
-To learn more about Next.js, take a look at the following resources:
+### Archi
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Je suis moins habitué / fan du mono repo. Ici je vais m'adapter pour le test technique.<br />
+Je trouve moins intuitif / lisible de tout rassembler au même endroit.<br />
+La séparation des concepts rend la logique plus ordonné/rangé.<br />
+Pour scale un projet, le maintenir ou gérer un fort trafic, avoir entièrement la main sur ce qu'on fait est un bon point d'entrée.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+J'ai essayé d'avoir une approche organisé en séparant mes controllers de mes routes + usage API externe.
 
-## Deploy on Vercel
+### UI/UX
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Est-ce que je fais des liens simple ? Un dropdown ?<br />
+J'ai opté pour les liens simple car il n'y en avait que 2. Dans le cadre du test ça me semble cohérent de garder un côté réactif.<br />
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Personnel
+
+J'ai eu la maladresse de sous estimer la préparation avant de coder car peu de chose à mettre en place.<br />
+
+Petit vent de panique au moment du deploy : Les liens ne fonctionnaient pas.<br />
+➡️ J'ai bêtement ajouter mon .env sans modifier ma variable Next pour mon URL de base public.<br />
+(J'ai pas vraiment paniqué hein, je précise quand même 👀...)
+
+### Liens
+
+- [Repo github](https://github.com/BaltiBlast/kolizeo-test)
+- [Deploy / Rendu](https://kolizeo-test-one.vercel.app/)
