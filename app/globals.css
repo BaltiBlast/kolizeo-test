@@ -1,4 +1,10 @@
-.not-found {
+.not-found,
+.landing {
   margin-top: 3rem;
   text-align: center;
+}
+
+.btn-container li,
+.landing li {
+  list-style: none;
 }
